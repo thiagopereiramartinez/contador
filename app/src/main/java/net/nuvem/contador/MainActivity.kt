@@ -38,7 +38,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 MainViewModel.State.PAUSED -> {
                     with(binding) {
+
                         btnIniciar.isEnabled = true
+                        btnIniciar.text = "Retomar"
                         btnPausar.isEnabled = false
                         btnResetar.isEnabled = true
                     }

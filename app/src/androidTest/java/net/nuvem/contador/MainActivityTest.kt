@@ -121,6 +121,12 @@ class MainActivityTest {
                     isEnabled()
                 )
             )
+        onView(withId(R.id.btnIniciar))
+            .check(
+                matches(
+                    withText("Retomar")
+                )
+            )
 
         onView(withId(R.id.btnPausar))
             .check(
@@ -183,5 +189,9 @@ class MainActivityTest {
                     isNotEnabled()
                 )
             )
+    }
+    @Test
+    fun testResumeContador(){
+        
     }
 }

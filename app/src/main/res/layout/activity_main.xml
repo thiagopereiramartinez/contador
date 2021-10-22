@@ -5,8 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tvLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/purple_700"
         tools:context=".MainActivity">
 
         <TextView
@@ -22,8 +24,8 @@
 
         <Button
             android:id="@+id/btnIniciar"
-            android:layout_width="98dp"
-            android:layout_height="54dp"
+            android:layout_width="124dp"
+            android:layout_height="52dp"
             android:layout_marginTop="16dp"
             android:text="Iniciar"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,8 +34,8 @@
 
         <Button
             android:id="@+id/btnPausar"
-            android:layout_width="100dp"
-            android:layout_height="49dp"
+            android:layout_width="124dp"
+            android:layout_height="52dp"
             android:layout_marginTop="16dp"
             android:enabled="false"
             android:text="Pausar"
@@ -43,11 +45,11 @@
 
         <Button
             android:id="@+id/btnResetar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="124dp"
+            android:layout_height="52dp"
             android:layout_marginTop="16dp"
-            android:text="Resetar"
             android:enabled="false"
+            android:text="Resetar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnPausar" />
