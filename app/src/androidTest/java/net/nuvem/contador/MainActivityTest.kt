@@ -1,5 +1,6 @@
 package net.nuvem.contador
 
+import android.text.style.LineHeightSpan
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -24,24 +25,40 @@ class MainActivityTest {
     fun testUI() {
 
         onView(withId(R.id.tvContador))
-            .check(matches(allOf(
-                isDisplayed(), withText("0")
-            )))
+            .check(
+                matches(
+                    allOf(
+                        isDisplayed(), withText("0")
+                    )
+                )
+            )
 
         onView(withId(R.id.btnIniciar))
-            .check(matches(allOf(
-                isDisplayed(), isEnabled(), isClickable(), withText("Iniciar")
-            )))
+            .check(
+                matches(
+                    allOf(
+                        isDisplayed(), isEnabled(), isClickable(), withText("Iniciar")
+                    )
+                )
+            )
 
         onView(withId(R.id.btnPausar))
-            .check(matches(allOf(
-                isDisplayed(), not(isEnabled()), withText("Pausar")
-            )))
+            .check(
+                matches(
+                    allOf(
+                        isDisplayed(), not(isEnabled()), withText("Pausar")
+                    )
+                )
+            )
 
         onView(withId(R.id.btnResetar))
-            .check(matches(allOf(
-                isDisplayed(), not(isEnabled()), withText("Resetar")
-            )))
+            .check(
+                matches(
+                    allOf(
+                        isDisplayed(), not(isEnabled()), withText("Resetar")
+                    )
+                )
+            )
 
     }
 
@@ -56,24 +73,32 @@ class MainActivityTest {
         }
 
         onView(withId(R.id.tvContador))
-            .check(matches(
-                withText("3")
-            ))
+            .check(
+                matches(
+                    withText("3")
+                )
+            )
 
         onView(withId(R.id.btnIniciar))
-            .check(matches(
-                not(isEnabled())
-            ))
+            .check(
+                matches(
+                    not(isEnabled())
+                )
+            )
 
         onView(withId(R.id.btnPausar))
-            .check(matches(
-                isEnabled()
-            ))
+            .check(
+                matches(
+                    isEnabled()
+                )
+            )
 
         onView(withId(R.id.btnResetar))
-            .check(matches(
-                isEnabled()
-            ))
+            .check(
+                matches(
+                    isEnabled()
+                )
+            )
 
     }
 
@@ -91,29 +116,72 @@ class MainActivityTest {
             .perform(click())
 
         onView(withId(R.id.btnIniciar))
-            .check(matches(
-                isEnabled()
-            ))
+            .check(
+                matches(
+                    isEnabled()
+                )
+            )
 
         onView(withId(R.id.btnPausar))
-            .check(matches(
-                not(isEnabled())
-            ))
+            .check(
+                matches(
+                    not(isEnabled())
+                )
+            )
 
         onView(withId(R.id.btnResetar))
-            .check(matches(
-                isEnabled()
-            ))
+            .check(
+                matches(
+                    isEnabled()
+                )
+            )
 
         runBlocking {
             delay(1000L)
         }
 
         onView(withId(R.id.tvContador))
-            .check(matches(
-                withText("3")
-            ))
+            .check(
+                matches(
+                    withText("3")
+                )
+            )
 
     }
 
+    @Test
+    fun testBtnReset() {
+        onView(withId(R.id.btnIniciar)).perform(click())
+
+        runBlocking {
+            delay(3000L)
+        }
+
+        onView(withId(R.id.btnResetar)).perform(click())
+
+        onView(withId(R.id.tvContador))
+            .check(
+                matches(withText("0"))
+            )
+
+        onView(withId(R.id.btnIniciar))
+            .check(
+                matches(
+                    isEnabled()
+                )
+            )
+
+        onView(withId(R.id.btnResetar))
+            .check(
+                matches(
+                    isNotEnabled()
+                )
+            )
+        onView(withId(R.id.btnPausar))
+            .check(
+                matches(
+                    isNotEnabled()
+                )
+            )
+    }
 }

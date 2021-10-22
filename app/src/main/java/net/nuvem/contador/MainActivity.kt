@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        with (binding) {
+        with(binding) {
             btnIniciar.setOnClickListener {
                 viewModel.start()
             }
@@ -30,17 +30,24 @@ class MainActivity : AppCompatActivity() {
         viewModel.state.observe(this) { state ->
             when (state) {
                 MainViewModel.State.STARTED -> {
-                    with (binding) {
+                    with(binding) {
                         btnIniciar.isEnabled = false
                         btnPausar.isEnabled = true
                         btnResetar.isEnabled = true
                     }
                 }
                 MainViewModel.State.PAUSED -> {
-                    with (binding) {
+                    with(binding) {
                         btnIniciar.isEnabled = true
                         btnPausar.isEnabled = false
                         btnResetar.isEnabled = true
+                    }
+                }
+                MainViewModel.State.INITIAL -> {
+                    with(binding) {
+                        btnIniciar.isEnabled = true
+                        btnPausar.isEnabled = false
+                        btnResetar.isEnabled = false
                     }
                 }
             }
