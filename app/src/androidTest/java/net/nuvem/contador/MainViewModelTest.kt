@@ -20,8 +20,8 @@ class MainViewModelTest {
         viewModel = MainViewModel()
 
         runBlocking(Dispatchers.Main) {
-            viewModel.state.observeForever {  }
-            viewModel.contador.observeForever {  }
+            viewModel.state.observeForever { }
+            viewModel.contador.observeForever { }
         }
     }
 
@@ -51,4 +51,12 @@ class MainViewModelTest {
         assertEquals(2, viewModel.contador.value)
     }
 
+    @Test
+    fun testResetContador() = runBlocking(Dispatchers.Main) {
+        viewModel.start()
+        delay(2500L)
+        viewModel.reset()
+        assertEquals(MainViewModel.State.INITIAL, viewModel.state.value)
+        assertEquals(0, viewModel.contador.value)
+    }
 }

@@ -22,8 +22,8 @@
 
         <Button
             android:id="@+id/btnIniciar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="98dp"
+            android:layout_height="54dp"
             android:layout_marginTop="16dp"
             android:text="Iniciar"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,11 +32,11 @@
 
         <Button
             android:id="@+id/btnPausar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="49dp"
             android:layout_marginTop="16dp"
-            android:text="Pausar"
             android:enabled="false"
+            android:text="Pausar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnIniciar" />
